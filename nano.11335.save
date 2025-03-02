@@ -1,0 +1,12 @@
+async sendMail(recepteur: string, message: string, qrCode: string) {
+    await this.mailService.sendMail({
+      from: 'FAAS',
+      to: recepteur,
+      subject: `RESERVATION DE TICKET`,
+      text: message,
+      template: '/chemin',
+      context: {
+        tickets: ticket,
+      },
+    });
+  }

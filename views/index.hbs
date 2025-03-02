@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>App</title>
+  </head>
+  <body>
+    <!-- Section 1 -->
+<section class="w-full px-8 text-gray-700 bg-white">
+    <div class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl">
+        <div class="relative flex flex-col md:flex-row">
+            <a href="#_" class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0">
+                <span class="mx-auto text-xl font-black leading-none text-gray-900 select-none">FAAS<span class="text-indigo-600">.</span></span>
+            </a>
+            <nav class="flex flex-wrap items-center mb-5 text-base md:mb-0 md:pl-8 md:ml-8 md:border-l md:border-gray-200">
+                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Home</a>
+                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Features</a>
+                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Pricing</a>
+                <a href="#_" class="mr-5 font-medium leading-6 text-gray-600 hover:text-gray-900">Blog</a>
+            </nav>
+        </div>
+      {{#if session.connected}}
+           <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+            <a href="users/profile/{{session.user}}" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900 border-1 p-2 rounded-lg">
+                Profile
+            </a>
+             {{#if session.isAdmin}}
+             <a href="admin/dashboard" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
+                Dashboard
+            </a>
+          {{/if}}
+          <form action="users/logout" method="POST" class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-bold      rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+            <button type="submit">Logout</button>
+          </form>
+        </div>
+      {{else}}
+          <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+              <a href="users/login" class="text-base font-medium leading-6 text-gray-600 whitespace-no-wrap transition duration-150 ease-in-out hover:text-gray-900">
+                  Sign in
+              </a>
+              <a href="users/register" class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-indigo-600 border border-transparent rounded-md shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600">
+                  Sign up
+              </a>
+          </div>
+        {{/if}}
+    </div>
+</section>
+
+<!-- Section 2 -->
+<section class="px-2 py-32 bg-white md:px-0">
+  <div class="container items-center max-w-6xl px-8 mx-auto xl:px-5">
+    <div class="flex flex-wrap items-center sm:-mx-3">
+      <div class="w-full md:w-1/2 md:px-3">
+        <div class="w-full pb-6 space-y-6 sm:max-w-md lg:max-w-lg md:space-y-4 lg:space-y-8 xl:space-y-9 sm:pr-5 lg:pr-0 md:pb-0">
+          <h1 class="text-4xl font-extrabold tracking-tight text-gray-900 sm:text-5xl md:text-4xl lg:text-5xl xl:text-6xl">
+            <span class="block xl:inline">Bienvenue sur FAAS! </span>
+            <span class="block text-indigo-600 xl:inline">reservez pour tous vos évènements.</span>
+          </h1>
+          <p class="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">Il n'a jamais été aussi simple de créer un beau site web qui transmet votre message et raconte votre histoire.</p>
+          <div class="relative flex flex-col sm:flex-row sm:space-x-4">
+            <a href="users/register" class="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-600 rounded-md sm:mb-0 hover:bg-indigo-700 sm:w-auto">
+              Rejoignez nous
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 ml-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-1/2">
+        <div class="w-full h-auto overflow-hidden rounded-md shadow-xl sm:rounded-xl">
+            <script
+                src="https://unpkg.com/@dotlottie/player-component@2.7.12/dist/dotlottie-player.mjs"
+                type="module"
+                >
+            </script>
+            <dotlottie-player
+                src="https://lottie.host/6093f089-0fe4-4207-88c4-e75eaefe4f0d/ySbXn7sq86.lottie"
+                class="mx-auto"
+                background="transparent"
+                speed="1"
+                style="width: 500px; height: 500px"
+                loop
+                autoplay
+                >
+            </dotlottie-player>
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{{!-- grid concert --}}
+    <div class="bg-gradient-to-r from-indigo-600 to-red-500  dark:bg-gray-900 text-gray-800 dark:text-white">
+        <div class="container mx-auto px-4 py-8">
+            <h2 class="text-3xl font-semibold text-center text-white text-gray-800 dark:text-gray-200 mb-8">
+                CONCERT DU MOMENT
+            </h2>
+            <div class="grid grid-cols-1 mt-3 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                {{#each AllConcert}}
+
+                {{!-- Modale de reservation --}}
+                  <div id="reservationModal-{{@index}}" class="fixed inset-0 z-50 flex items-center justify-center hidden">
+                    <div class="fixed inset-0 bg-black/50"></div>
+                    <div class="relative w-full max-w-md p-6 bg-white dark:bg-gray-800 rounded-lg shadow-xl">
+                      <div class="flex items-center justify-between mb-4">
+                        <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Reservation</h3>
+                        <button  onclick="closeModal('{{@index}}')" class="text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-x-circle-fill" viewBox="0 0 16 16">
+                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293z"/>
+                          </svg>
+                        </button>
+                      </div>
+                      <div class="my-5">
+                        <div class="flex gap-3">
+                            <h1 class="font-semibold">TICKET : </h1>
+                            <h2 id="modalTitre-{{@index}}">{{this.titre}}</h2>
+                        </div>
+                        <div class="flex justify-between my-3">
+                            <div class="flex gap-3">
+                                <h1 class="font-semibold">DATE : </h1>
+                                <h2 id="modalDate-{{@index}}">{{this.date}}</h2>
+                            </div>
+                            <div class="flex gap-3">
+                                <h1 class="font-semibold">TARIF : </h1>
+                                <h2 id="modalMontant-{{@index}}">{{this.montant}} F</h2>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="space-y-2">
+                        <form action="reservation/create" method="POST">
+                                <input type="text" id="titre" name="titre" class="hidden w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
+                                value="{{this.titre}}">
+                                <input type="date" id="titre" name="date" class="hidden w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
+                                 value="{{this.date}}">
+                                <input type="text" id="lieu" name="lieu" class="hidden w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
+                                value="{{this.lieu}}">
+                                <input type="number"  id="montant" name="montant" class="hidden w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
+                                value="{{this.montant}}">
+                                <label for="email">Entrez l'adresse mail pour le ticket</label>
+                                <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
+                                placeholder="example@gmail.com">
+                                <div class="flex justify-end gap-3 mt-2">
+                                <button  onclick="closeModal('{{@index}}')" class="px-4 py-2 text-sm font-bold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600">
+                                    Annuler
+                                </button>
+                                <button type="submit" id="submitUrlButton" class="flex items-center justify-center px-4 py-2 text-sm font-bold text-white rounded-md bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-violet-400 dark:from-indigo-500 dark:to-violet-500 dark:hover:from-indigo-600 dark:hover:to-violet-600">
+                                    Confirmer
+                                </button>
+                                </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+
+                <div class="bg-white dark:bg-gray-800 shadow-lg rounded-lg overflow-hidden">
+                    <div class="relative">
+                        <div class="absolute top-0 right-0 bg-white text-blue-500 font-bold px-2 py-1 m-2 rounded-md">{{this.artiste}}
+                        </div>
+                    </div>
+                    <img src="{{this.image}}"
+                        alt="Headless UI" class="w-full h-64 object-cover">
+                    <div class="p-4 md:p-6">
+                        <h3 class="text-xl font-semibold text-indigo-500 dark:text-indigo-300 mb-2">{{this.titre}}</h3>
+                        <div class="flex justify-between gap-3">
+                            <h3 class="text-md font-medium text-gray-700 dark:text-gray-300" id="dateFormat">Date : {{this.date}} </h3>
+                            <h3 class="text-md font-medium text-gray-700 dark:text-gray-300">Lieu : {{this.lieu}}</h3>
+                        </div>
+                        
+                
+
+                        <div class="flex justify-between mt-6">
+                            <h2 class="inline-block font-semibold bg-red-500 text-white  text-white px-4 py-2 rounded-md">
+                                TARIF : {{this.montant}} F
+                            </h2>
+                            <div>
+                                    <button
+                                      type="button" 
+                                      onclick="openModal('{{@index}}', '{{this.titre}}', '{{this.date}}', '{{this.montant}}')"
+                                      class="relative px-2 py-2 font-bold text-white rounded-lg group overflow-hidden">
+                                     
+                                        <!-- Glowing background effect -->
+                                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-500 to-blue-500 opacity-70 blur-xl group-hover:opacity-100 transition-opacity duration-300"></span>
+                                        
+                                        <!-- Main button background -->
+                                        <span class="absolute inset-0 w-full h-full bg-gradient-to-r from-indigo-600 to-blue-500 opacity-90"></span>
+                                        
+                                        <!-- Shine effect -->
+                                        <span class="absolute inset-0 w-1/4 h-full bg-white/20 skew-x-12 transform -translate-x-full group-hover:translate-x-[400%] transition-transform duration-1000"></span>
+                                        
+                                        <!-- Button text -->
+                                        <span class="relative flex items-center gap-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-ticket-detailed" viewBox="0 0 16 16">
+                                                <path d="M4 5.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m0 5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5M5 7a1 1 0 0 0 0 2h6a1 1 0 1 0 0-2z"/>
+                                                <path d="M0 4.5A1.5 1.5 0 0 1 1.5 3h13A1.5 1.5 0 0 1 16 4.5V6a.5.5 0 0 1-.5.5 1.5 1.5 0 0 0 0 3 .5.5 0 0 1 .5.5v1.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 11.5V10a.5.5 0 0 1 .5-.5 1.5 1.5 0 1 0 0-3A.5.5 0 0 1 0 6zM1.5 4a.5.5 0 0 0-.5.5v1.05a2.5 2.5 0 0 1 0 4.9v1.05a.5.5 0 0 0 .5.5h13a.5.5 0 0 0 .5-.5v-1.05a2.5 2.5 0 0 1 0-4.9V4.5a.5.5 0 0 0-.5-.5z"/>
+                                            </svg>
+                                            <span class="tracking-wider">Reserver</span>
+                                        </span>
+                                        
+                                        <!-- Border glow effect -->
+                                        <span class="absolute inset-0 w-full h-full border border-cyan-300/50 rounded-lg"></span>
+                                    </button>
+                                </div>                          
+                            </div>
+                        </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+
+   
+  <div class="container my-12 mx-auto px-2 md:px-4">
+        <section class="mb-32">
+            <div class="flex">
+                <img
+                      src="uploads/logoConcert.png"
+                      alt="Logo"
+                      class="w-full h-full object-cover rounded-lg"
+                />
+
+                <div class="w-full shrink-0 grow-0 basis-auto lg:w-7/12 my-auto">
+                    <div class="flex flex-wrap">
+                        <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
+                            <div class="flex items-start">
+                                <div class="shrink-0">
+                                    <div class="inline-block rounded-md bg-teal-400-100 p-4 text-teal-700">
+                                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke-width="2" stroke="currentColor" class="h-12 w-12 stroke-indigo-500">
+                                        <path stroke-linecap="round" stroke-linejoin="round"
+                                            d="M14.25 9.75v-4.5m0 4.5h4.5m-4.5 0l6-6m-3 18c-8.284 0-15-6.716-15-15V4.5A2.25 2.25 0 014.5 2.25h1.372c.516 0 .966.351 1.091.852l1.106 4.423c.11.44-.054.902-.417 1.173l-1.293.97a1.062 1.062 0 00-.38 1.21 12.035 12.035 0 007.143 7.143c.441.162.928-.004 1.21-.38l.97-1.293a1.125 1.125 0 011.173-.417l4.423 1.106c.5.125.852.575.852 1.091V19.5a2.25 2.25 0 01-2.25 2.25h-2.25z" />
+                                    </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-6 grow">
+                                    <p class="mb-2 font-bold">
+                                        Technical support
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        Aziz37ouattara@example.com
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        +225 05 44 970 711
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
+                            <div class="flex items-start">
+                                <div class="shrink-0">
+                                    <div class="inline-block rounded-md bg-teal-400-100 p-4 text-teal-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="h-12 w-12 stroke-indigo-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M2.25 18.75a60.07 60.07 0 0115.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5v.75A.75.75 0 013 6h-.75m0 0v-.375c0-.621.504-1.125 1.125-1.125H20.25M2.25 6v9m18-10.5v.75c0 .414.336.75.75.75h.75m-1.5-1.5h.375c.621 0 1.125.504 1.125 1.125v9.75c0 .621-.504 1.125-1.125 1.125h-.375m1.5-1.5H21a.75.75 0 00-.75.75v.75m0 0H3.75m0 0h-.375a1.125 1.125 0 01-1.125-1.125V15m1.5 1.5v-.75A.75.75 0 003 15h-.75M15 10.5a3 3 0 11-6 0 3 3 0 016 0zm3 0h.008v.008H18V10.5zm-12 0h.008v.008H6V10.5z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-6 grow">
+                                    <p class="mb-2 font-bold ">
+                                        Sales questions
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        Fairouz@example.com
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        +225 01 51 266 498
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
+                            <div class="align-start flex">
+                                <div class="shrink-0">
+                                    <div class="inline-block rounded-md bg-teal-400-100 p-4 text-teal-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="h-12 w-12 stroke-indigo-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 7.5h1.5m-1.5 3h1.5m-7.5 3h7.5m-7.5 3h7.5m3-9h3.375c.621 0 1.125.504 1.125 1.125V18a2.25 2.25 0 01-2.25 2.25M16.5 7.5V18a2.25 2.25 0 002.25 2.25M16.5 7.5V4.875c0-.621-.504-1.125-1.125-1.125H4.125C3.504 3.75 3 4.254 3 4.875V18a2.25 2.25 0 002.25 2.25h13.5M6 7.5h3v3H6v-3z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-6 grow">
+                                    <p class="mb-2 font-bold ">Publication</p>
+                                    <p class="text-neutral-500 ">
+                                        Adeyemi@example.com
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        +225 05 66 443 931
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-12 w-full shrink-0 grow-0 basis-auto md:w-6/12 md:px-3 lg:px-6">
+                            <div class="align-start flex">
+                                <div class="shrink-0">
+                                    <div class="inline-block rounded-md bg-teal-400-100 p-4 text-teal-700">
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                            stroke-width="2" stroke="currentColor" class="h-12 w-12 stroke-indigo-500">
+                                            <path stroke-linecap="round" stroke-linejoin="round"
+                                                d="M12 12.75c1.148 0 2.278.08 3.383.237 1.037.146 1.866.966 1.866 2.013 0 3.728-2.35 6.75-5.25 6.75S6.75 18.728 6.75 15c0-1.046.83-1.867 1.866-2.013A24.204 24.204 0 0112 12.75zm0 0c2.883 0 5.647.508 8.207 1.44a23.91 23.91 0 01-1.152 6.06M12 12.75c-2.883 0-5.647.508-8.208 1.44.125 2.104.52 4.136 1.153 6.06M12 12.75a2.25 2.25 0 002.248-2.354M12 12.75a2.25 2.25 0 01-2.248-2.354M12 8.25c.995 0 1.971-.08 2.922-.236.403-.066.74-.358.795-.762a3.778 3.778 0 00-.399-2.25M12 8.25c-.995 0-1.97-.08-2.922-.236-.402-.066-.74-.358-.795-.762a3.734 3.734 0 01.4-2.253M12 8.25a2.25 2.25 0 00-2.248 2.146M12 8.25a2.25 2.25 0 012.248 2.146M8.683 5a6.032 6.032 0 01-1.155-1.002c.07-.63.27-1.222.574-1.747m.581 2.749A3.75 3.75 0 0115.318 5m0 0c.427-.283.815-.62 1.155-.999a4.471 4.471 0 00-.575-1.752M4.921 6a24.048 24.048 0 00-.392 3.314c1.668.546 3.416.914 5.223 1.082M19.08 6c.205 1.08.337 2.187.392 3.314a23.882 23.882 0 01-5.223 1.082" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="ml-6 grow">
+                                    <p class="mb-2 font-bold">
+                                        Bug report
+                                    </p>
+                                    <p class="text-neutral-500 ">
+                                        Samuel@example.com
+                                    </p>
+                                    <p class="text-neutral-500">
+                                        +255 07 59 215 725
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </div>
+
+    <footer class="px-3 pt-4 lg:px-9 bg-indigo-500">
+        <div class="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4 my-8">
+
+            <div class="sm:col-span-2 ">
+                <a href="#" class="inline-flex items-center">
+                    <img src="https://mcqmate.com/public/images/logos/60x60.png" alt="logo" class="h-8 w-8">
+                    <span class="ml-2 text-xl font-bold tracking-wide text-white">FAAS GROUP</span>
+                </a>
+                <div class="mt-6 lg:max-w-xl">
+                    <p class="text-sm text-white">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis mi, faucibus dignissim lorem
+                        id, imperdiet interdum mauris. Vestibulum ultrices sed libero non porta. Vivamus malesuada urna eu
+                        nibh malesuada, non finibus massa laoreet. Nunc nisi velit, feugiat a semper quis, pulvinar id
+                        libero. Vivamus mi diam, consectetur non orci ut, tincidunt pretium justo. In vehicula porta
+                        molestie. Suspendisse potenti. 
+                        </p>
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-2 text-sm">
+                <p class="text-base font-bold tracking-wide text-white">Popular Courses</p>
+                <a href="#" class="text-gray-50">UPSC - Union Public Service Commission</a>
+                <a href="#" class="text-gray-50">General Knowledge</a>
+                <a href="#" class="text-gray-50">MBA</a>
+                <p class="text-base font-bold tracking-wide text-white">Popular Topics</p>
+                <a href="#" class="text-gray-50">Human Resource Management</a>
+                <a href="#" class="text-gray-50">Operations Management</a>
+                <a href="#" class="text-gray-50">Marketing Management</a>
+            </div>
+
+            <div>
+                <p class="text-base font-bold tracking-wide text-white">COMPANY IS ALSO AVAILABLE ON</p>
+                <div class="flex items-center gap-1 px-2">
+                    <a href="#" class="w-full min-w-xl">
+                        <img src="https://mcqmate.com/public/images/icons/playstore.svg" alt="Playstore Button"
+                            class="h-10">
+                    </a>
+                    <a class="w-full min-w-xl" href="https://www.youtube.com/channel/UCo8tEi6SrGFP8XG9O0ljFgA">
+                        <img src="https://mcqmate.com/public/images/icons/youtube.svg" alt="Youtube Button"
+                            class="h-28">
+                    </a>
+                </div>
+                <p class="text-base font-bold tracking-wide text-white">Contacts</p>
+                <div class="flex">
+                    <p class="mr-1 text-white">Email:</p>
+                    <a href="#" class="text-gray-50" title="send email">faas@company.com</a>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
+            <p class="text-sm text-white">© Copyright 2023 Company. All rights reserved.</p>
+            <ul class="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+                <li>
+                    <a href="#"
+                        class="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Privacy
+                        &amp; Cookies Policy
+                    </a>
+                </li>
+                <li>
+                    <a href="#"
+                        class="text-sm text-white transition-colors duration-300 hover:text-deep-purple-accent-400">Disclaimer
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+    </footer>
+  </body>
+</html>
+
+<script>
+    function openModal(index,titre, date, montant) {
+        console.log(index)
+        console.log(titre)
+        console.log(date)
+        console.log(montant)
+
+        document.getElementById(`modalTitre-${index}`).innerText = titre;
+        document.getElementById(`modalDate-${index}`).innerText = date;
+        document.getElementById(`modalMontant-${index}`).innerText = montant + "F";
+        document.getElementById(`reservationModal-${index}`).classList.remove('hidden');
+    }
+    
+    function closeModal(index) {
+        document.getElementById(`reservationModal-${index}`).classList.add('hidden');
+    }
+</script>

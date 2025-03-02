@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>TICKET</title>
+</head>
+<body>
+    <div class="flex w-full max-w-sm flex-col items-center space-y-4 sm:items-start mx-auto mt-50">
+        <div
+            class="pointer-events-auto w-full max-w-sm rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5 transition-transform duration-300 ease-out z-50">
+            <div class="p-4">
+                <div class="flex items-start">
+                    <div class="w-0 flex-1">
+                        <p class="text-sm font-medium text-gray-900" style="margin-bottom: 0rem;">FELICITATION 🎉</p>
+                        <p class="mt-2 text-sm text-gray-500">Vous avez reserez un ticket pour </p>
+                        <p class="mt-2 text-sm text-gray-500">{{concert}} prévu le {{date}}.</p>
+                        <p class="mt-2 text-sm text-gray-500">Verifiez vos mails pour voir votre ticket.</p>
+                        <div class="mt-4 flex">
+                            <a href="/">
+                                <button type="button" class="inline-flex items-center rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white shadow-sm       hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-800">
+                                    Retour
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

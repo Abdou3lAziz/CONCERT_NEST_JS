@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="relative h-screen bg-gray-100 overflow-hidden">
+    
+    <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+
+        <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+            <div class="bg-white w-xl py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                <h2 class="p-3">{{ message }}</h2>
+                <form class="space-y-6" action="" method="POST">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700">Username</label>
+                        <div class="mt-1">
+                            <input id="name" name="name" type="text" autocomplete="name" required=""
+                                    class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                     <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <div class="mt-1">
+                            <input id="email" name="email" type="email" autocomplete="email" required=""
+                                    class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                     <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">password</label>
+                        <div class="mt-1">
+                            <input id="password" name="password" type="password" autocomplete="password" required=""
+                                    class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                        </div>
+                    </div>                    
+                     <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700">password confirmation</label>
+                        <div class="mt-1">
+                            <input id="password" name="password_confirm" type="password" autocomplete="password" required=""
+                                    class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label for="number" class="block text-sm font-medium text-gray-700">number</label>
+                        <div class="mt-1">
+                            <input id="number" name="number" type="text" autocomplete="current-password"
+                                    required=""
+                                    class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                      <div>
+                        <label for="isAdmin" class="block text-sm font-medium text-gray-700">Role</label>
+                        <div class="mt-1">
+                           <select name="isAdmin" id="isAdmin">
+                                <option value="false">Invité</option>
+                                <option value="true">Admin</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button type="submit"
+                                class="flex w-full justify-center rounded-md border border-transparent bg-indigo-600 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-600 focus:outline-none focus:ring-2 focus:ring-indigo-600 focus:ring-offset-2">Enregistrer</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

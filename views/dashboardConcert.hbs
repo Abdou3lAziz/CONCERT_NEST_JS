@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>Concert</title>
+</head>
+<body>
+<section class="bg-white mt-15">
+ <div class="w-full  mx-auto max-w-3xl flex flex-col justify-center py-24   relative p-8">
+   <!--  Starts component -->
+   <div>
+    <form class="w-full divide-neutral-200 rounded-3xl bg-white shadow-2xl border p-8 lg:p-10" method="POST">
+     <div class="py-2 space-y-3"> 
+        <label for="titre" class="block text-sm text-gray-900">Titre du concert</label> 
+        <input type="titre" name="titre" id="titre"  class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-black-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-inset focus:ring-2 text-xs" placeholder="Entrez le tire du concert" required=""/>
+     </div>
+     <div class="py-2 space-y-3"> 
+        <label for="artiste"  class="block text-sm text-gray-900 mt-3">Nom de l'artiste</label>
+       <input id="artiste" name="artiste" class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-black-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs" placeholder="Entrez le nom de l'artiste" required="" type="text"> 
+     </div>
+     <div class="py-2 space-y-3"> 
+       <label for="date" class="block text-sm text-gray-900 mt-3">Date du concert</label>
+       <input id="date" name="date" class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-black-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs" placeholder="Selectionner la date du concert" required="" type="date"> 
+     </div>
+     <div class="flex justify-around gap-5">
+        <div class="py-2 space-y-3 w-full"> 
+            <label for="lieu"  class="block text-sm text-gray-900 mt-3">Lieu du concert</label>
+            <input id="lieu" name="lieu" class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-black-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs" placeholder="Entrez le lieu du concert" required="" type="text"> 
+        </div>
+        <div class="py-2 space-y-3 w-full"> 
+            <label for="montant"  class="block text-sm text-gray-900 mt-3">Tarif du concert</label>
+            <input id="montant" name="montant" class="block w-full h-12 px-4 py-3 placeholder-gray-500 bg-gray-100 border-0 rounded-lg appearance-none text-black-500 focus:border-blue-500 focus:bg-white focus:outline-none focus:ring-blue-500 focus:ring-2 focus:ring-inset text-xs" placeholder="Entrez le montant du concert" required="" type="number"> 
+        </div>
+     </div>
+     <div class="flex items-center space-x-6 py-2 space-y-3 ">
+        <div class="shrink-0">
+            <img id='preview_img' class="h-16 w-16 object-cover" src="https://media.istockphoto.com/id/1147544807/vector/thumbnail-image-vector-graphic.jpg?s=612x612&w=0&k=20&c=rnCKVbdxqkjlcs3xH87-9gocETqpspHFXu5dIGB4wuM=" alt="Image" />
+        </div>
+        <label class="block">
+        <span class="sr-only">Choose profile photo</span>
+        <input type="file" name="coverImage" onchange="loadFile(event)" class="block w-full text-sm text-slate-500
+            file:mr-4 file:py-2 file:px-4
+            file:border-0
+            file:text-sm file:font-semibold
+            file:bg-violet-50 file:text-violet-700
+            hover:file:bg-violet-100
+        "/>
+        </label>
+    </div>
+     <div class="mt-4"> <button type="submit" class="rounded-full bg-blue-600 px-8 py-2 h-12 text-sm font-semibold text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 w-full">Enregister</button> </div>
+    </form>
+   </div> 
+  </div>
+ </div>
+</section>
+
+<script>
+        var loadFile = function(event) {
+            
+            var input = event.target;
+            var file = input.files[0];
+            var type = file.type;
+
+           var output = document.getElementById('preview_img');
+
+
+            output.src = URL.createObjectURL(event.target.files[0]);
+            output.onload = function() {
+                URL.revokeObjectURL(output.src) // free memory
+            }
+        };
+</script>
+</body>
+</html>

@@ -31,8 +31,7 @@ async function bootstrap() {
     res.locals.session = req.session;
     next();
   });
-  const port = process.env.PORT || 3000;
   app.use(cookieParser());
-  await app.listen(port, "0.0.0.0");
+  await app.listen(process.env.PORT ?? 3000);
 }
 bootstrap();

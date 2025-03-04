@@ -140,12 +140,15 @@
                                 <input type="email" id="email" name="email" class="w-full mt-1 p-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-200 placeholder-gray-400 dark:placeholder-gray-500"
                                 placeholder="example@gmail.com">
                                 <div class="flex justify-end gap-3 mt-2">
-                                <button  onclick="closeModal('{{@index}}')" class="px-4 py-2 text-sm font-bold text-gray-700 bg-white border border-gray-300 rounded-md hover:bg-gray-50 dark:bg-gray-700 dark:text-gray-300 dark:border-gray-600 dark:hover:bg-gray-600">
-                                    Annuler
-                                </button>
-                                <button type="submit" id="submitUrlButton" class="flex items-center justify-center px-4 py-2 text-sm font-bold text-white rounded-md bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-violet-400 dark:from-indigo-500 dark:to-violet-500 dark:hover:from-indigo-600 dark:hover:to-violet-600">
-                                    Confirmer
-                                </button>
+                                {{#if session.connected}}
+                                    <button type="submit" id="submitUrlButton" class="flex items-center justify-center px-4 py-2 text-sm font-bold text-white rounded-md bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-violet-400 dark:from-indigo-500 dark:to-violet-500 dark:hover:from-indigo-600 dark:hover:to-violet-600">
+                                        Confirmer
+                                    </button>
+                                {{else}}
+                                        <button type="submit" id="submitUrlButton" class="flex items-center justify-center px-4 py-2 text-sm font-bold text-white rounded-md bg-gradient-to-r from-green-500 to-green-600 hover:from-green-400 hover:to-violet-400 dark:from-indigo-500 dark:to-violet-500 dark:hover:from-indigo-600 dark:hover:to-violet-600">
+                                           <a href="users/login">Confirmer</a>
+                                        </button>
+                                {{/if}}
                                 </div>
                         </form>
                       </div>

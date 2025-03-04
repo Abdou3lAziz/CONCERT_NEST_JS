@@ -30,7 +30,7 @@ export declare class UsersController {
         url: string;
     }>;
     cookie(request: Request, response: Response): void;
-    logout(session: Record<string, any>): void;
+    logout(res: Response): Promise<void>;
     updateUser(userId: string, userUserName: string, userEmail: string, userPassword: string, userNUmber: string, isAdmin: boolean): Promise<{
         message: string;
         updatedUser: import("./users.model").User;

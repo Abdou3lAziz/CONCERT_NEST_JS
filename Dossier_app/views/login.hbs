@@ -10,16 +10,16 @@
     <body>
     <div class="relative h-screen bg-gray-50 overflow-hidden">
     <div
-        class="absolute top-20 left-2 w-[500px] h-[500px] bg-[#D1208A80] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob">
+        class="absolute top-20 left-2 w-[500px] h-[500px] bg-[#D1208A80] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob" style="pointer-events: none;">
     </div>
     <div
-        class="absolute top-20 right-32 w-[500px] h-[500px] bg-[#FFB20080] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-2000">
+        class="absolute top-20 right-32 w-[500px] h-[500px] bg-[#FFB20080] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-2000" style="pointer-events: none;">
     </div>
     <div
-        class="hidden xl:block absolute bottom-10 left-32 w-[500px] h-[500px] bg-[#FFB20080] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-4000">
+        class="hidden xl:block absolute bottom-10 left-32 w-[500px] h-[500px] bg-[#FFB20080] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-4000" style="pointer-events: none;">
     </div>
     <div
-        class="absolute bottom-10 right-52 w-[500px] h-[500px] bg-[#CAEEF580] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-4000">
+        class="absolute bottom-10 right-52 w-[500px] h-[500px] bg-[#CAEEF580] rounded-full mix-blend-multiply filter blur-[150px] opacity-70 animate-blob animation-delay-4000" style="pointer-events: none;">
     </div>
     <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div class="sm:mx-auto sm:w-full sm:max-w-md">
@@ -36,14 +36,14 @@
                 <h2 class="p-3">{{ message }}</h2>
                 <form class="space-y-6" method="POST">
                      <div>
-                        <label for="email" class="block text-sm font-medium text-gray-700">Email address</label>
+                        <label for="email" class="block text-sm font-semibold text-gray-700">Email address</label>
                         <div class="mt-1">
                             <input id="email" name="email" type="email" autocomplete="email" required=""
                                     class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">
                         </div>
                     </div>
                      <div>
-                        <label for="password" class="block text-sm font-medium text-gray-700">password</label>
+                        <label for="password" class="block text-sm font-semibold text-gray-700">Password</label>
                         <div class="mt-1">
                             <input id="password" name="password" type="password" autocomplete="password" required=""
                                     class="block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm">

@@ -94,8 +94,9 @@ let UsersController = class UsersController {
         console.log(request.cookies);
         response.cookie('key', 'value');
     }
-    logout(session) {
-        session.destroy();
+    async logout(res) {
+        res.clearCookie('connect.sid');
+        res.redirect('/');
     }
     async updateUser(userId, userUserName, userEmail, userPassword, userNUmber, isAdmin) {
         const updatedUser = await this.usersService.updateUser(userId, userUserName, userEmail, userPassword, userNUmber, isAdmin);
@@ -184,11 +185,10 @@ __decorate([
 ], UsersController.prototype, "cookie", null);
 __decorate([
     (0, common_1.Post)('logout'),
-    (0, common_1.Redirect)('/'),
-    __param(0, (0, common_1.Session)()),
+    __param(0, (0, common_1.Res)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "logout", null);
 __decorate([
     (0, common_1.Patch)(':id'),

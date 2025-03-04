@@ -149,10 +149,11 @@ export class UsersController {
   }
 
   @Post('logout')
-  @Redirect('/')
-  logout(@Session() session: Record<string, any>) {
-    session.destroy();
+  async logout(@Res() res: Response) {
+    res.clearCookie('connect.sid'); 
+    res.redirect('/');
   }
+
 
   @Patch(':id')
   async updateUser(

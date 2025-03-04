@@ -42,7 +42,7 @@ let ReservationController = class ReservationController {
         console.log(reservationEmail);
         const dateCreation = new Date();
         const ticket = await this.reservationService.create(reservationTitre, reservationDate, reservationLieu, reservationMontant, reservationEmail, dateCreation);
-        const qrCodeImage = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=http://localhost:3000/reservation/verification/${ticket}`;
+        const qrCodeImage = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://concert-nest.onrender.com/reservation/verification/${ticket}`;
         console.log(qrCodeImage);
         const mail = await this.reservationService.sendMail(reservationEmail, `TICKET: ${reservationTitre}`, reservationEmail, qrCodeImage);
         console.log(mail);

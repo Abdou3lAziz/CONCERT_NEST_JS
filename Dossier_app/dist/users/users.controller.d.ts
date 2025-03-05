@@ -26,9 +26,7 @@ export declare class UsersController {
         number: string;
         isAdmin: boolean;
     }>;
-    connectuser(userEmail: string, userPassword: string, session: Record<string, any>, res: Response): Promise<void | {
-        url: string;
-    }>;
+    connectuser(userEmail: string, userPassword: string, session: Record<string, any>, res: Response): Promise<void>;
     cookie(request: Request, response: Response): void;
     logout(res: Response): Promise<void>;
     updateUser(userId: string, userUserName: string, userEmail: string, userPassword: string, userNUmber: string, isAdmin: boolean): Promise<{

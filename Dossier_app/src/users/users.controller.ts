@@ -114,7 +114,6 @@ export class UsersController {
   }
 
   @Post('login')
-  @Redirect()
   async connectuser(
     @Body('email') userEmail: string,
     @Body('password') userPassword: string,
@@ -122,14 +121,19 @@ export class UsersController {
     @Res() res: Response,
   ) {
     const user = await this.usersService.findUsers(userEmail);
+
     if (user) {
       const hash = user?.password;
       const hashed = await bcrypt.compare(userPassword, hash);
       if (hashed) {
-        session.isAdmin = user?.isAdmin;
-        session.user = user?._id;
+        // Enregistrement de la session
+        session.isAdmin = user.isAdmin;
+        session.user = user._id;
         session.connected = true;
-        return { url: '/' };
+        await session.save();
+        console.log( session);
+        
+        return res.redirect('/');
       } else {
         return res.render('login', {
           message: 'Mot de passe non conforme',

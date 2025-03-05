@@ -1,4 +1,4 @@
-import { Controller, Get, Render } from '@nestjs/common';
+import { Controller, Get, Render, Session } from '@nestjs/common';
 import { ConcertService } from 'src/concert/concert.service';
 
 @Controller('/')
@@ -7,9 +7,11 @@ export class HomeController {
 
   @Get()
   @Render('index')
-  async root() {
+  async root(@Session() session: Record<string, any>) {
     const FindAll = await this.concertService.findAll();
-    return { AllConcert: FindAll };
+    const islogged = session.connected
+    console.log(islogged);
+    return { AllConcert: FindAll,islogged};
   }
 
   @Get('viewevents')

@@ -2,7 +2,7 @@ import { ConcertService } from 'src/concert/concert.service';
 export declare class HomeController {
     private readonly concertService;
     constructor(concertService: ConcertService);
-    root(): Promise<{
+    root(session: Record<string, any>): Promise<{
         AllConcert: {
             id: any;
             titre: string;
@@ -13,6 +13,7 @@ export declare class HomeController {
             image: string;
             created_at: Date;
         }[];
+        islogged: any;
     }>;
     view(): Promise<{
         All: {

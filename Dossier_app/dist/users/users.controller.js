@@ -73,10 +73,12 @@ let UsersController = class UsersController {
             const hash = user?.password;
             const hashed = await bcrypt.compare(userPassword, hash);
             if (hashed) {
-                session.isAdmin = user?.isAdmin;
-                session.user = user?._id;
+                session.isAdmin = user.isAdmin;
+                session.user = user._id;
                 session.connected = true;
-                return { url: '/' };
+                await session.save();
+                console.log(session);
+                return res.redirect('/');
             }
             else {
                 return res.render('login', {
@@ -166,7 +168,6 @@ __decorate([
 ], UsersController.prototype, "getUser", null);
 __decorate([
     (0, common_1.Post)('login'),
-    (0, common_1.Redirect)(),
     __param(0, (0, common_1.Body)('email')),
     __param(1, (0, common_1.Body)('password')),
     __param(2, (0, common_1.Session)()),
